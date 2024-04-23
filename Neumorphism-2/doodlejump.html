@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,439;1,439&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Background Changer with Neumorphism Menu</title>
+<style>
+    body {
+        background-image: url('default.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        height: 100vh;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .menu {
+        display: flex;
+        justify-content: space-around;
+        width: 600px;
+        background-color: #f0f0f0;
+        padding: 10px;
+        border-radius: 20px;
+        box-shadow: 5px 5px 15px #cbced1, -5px -5px 15px #ffffff;
+    }
+    .menu button {
+        background-color: #f0f0f0;
+        border: none;
+        cursor: pointer;
+        font-size: 16px;
+        padding: 8px 12px;
+        border-radius: 10px;
+        box-shadow: 3px 3px 8px #cbced1, -3px -3px 8px #ffffff;
+       font-family: "Montserrat", sans-serif;
+        transition: transform 0.2s;
+    }
+    .menu button:hover {
+        transform: scale(1.1);
+    }
+</style>
+</head>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+<body>
+<div class="menu">
+  <button onclick="openFullscreen()">
+    <span class="material-symbols-outlined">
+    fullscreen
+    </span>
+  </button>
+  <iframe src="https://banagajdueod.netlify.app/games/doodlejump/" style="border:0px none;" name="" scrolling="no" frameborder="0" marginheight="0px" marginwidth="0px" height="400px" width="1800px" allowfullscreen></iframe>
+  <iframe id="fullscreenIframe" src="https://banagajdueod.netlify.app/games/doodlejump/" style="display: none;"></iframe>
+
+  <script>
+  function openFullscreen() {
+    var iframe = document.getElementById("fullscreenIframe");
+    iframe.style.display = "block";
+    iframe.requestFullscreen();
+  }
+
+  document.addEventListener("fullscreenchange", function() {
+    if (!document.fullscreenElement) {
+      var iframe = document.getElementById("fullscreenIframe");
+      iframe.style.display = "none";
+    }
+  });
+  </script>
+
+</div>
+<script>
+    function changeBackground(image) {
+        document.body.style.backgroundImage = `url('${image}')`;
+        localStorage.setItem('backgroundImage', image);
+    }
+
+    // Retrieve saved background choice on page load
+    const savedBackground = localStorage.getItem('backgroundImage');
+    if (savedBackground) {
+        document.body.style.backgroundImage = `url('${savedBackground}')`;
+    }
+</script>
+</body>
+</html>

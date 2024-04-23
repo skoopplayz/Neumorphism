@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,439;1,439&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Background Changer with Neumorphism Menu</title>
+<style>
+    body {
+        background-image: url('default.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        height: 100vh;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .menu {
+        display: flex;
+        justify-content: space-around;
+        width: 600px;
+        background-color: #f0f0f0;
+        padding: 10px;
+        border-radius: 20px;
+        box-shadow: 5px 5px 15px #cbced1, -5px -5px 15px #ffffff;
+    }
+    .menu button {
+        background-color: #f0f0f0;
+        border: none;
+        cursor: pointer;
+        font-size: 16px;
+        padding: 8px 12px;
+        border-radius: 10px;
+        box-shadow: 3px 3px 8px #cbced1, -3px -3px 8px #ffffff;
+       font-family: "Montserrat", sans-serif;
+        transition: transform 0.2s;
+    }
+    .menu button:hover {
+        transform: scale(1.1);
+    }
+</style>
+</head>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+<body>
+<div class="menu">
+  <button onclick="window.location.href='page-2.html';">
+    <span class="material-symbols-outlined">
+    arrow_back_ios_new
+    </span>
+  </button>
+  <button onclick="window.location.href='slope.html';">
+    <img src="https://i.pinimg.com/originals/86/12/00/8612001a80ea5f6720b1a1c11687af88.jpg" width="55" height="55"style="border-radius: 10%">
+    <button onclick="window.location.href='bitlife.html';">
+      <img src="https://play-lh.googleusercontent.com/fUM-UyywXxjC8soxAZdIlxJrlRRXmql8wkE426SHzft4lJycSKVd2jCYQQX1BEG9Xw"  width="55" height="55"style="border-radius: 10%">
+    </span>
+  </button>
+    <button onclick="window.location.href='flappybird.html';">
+      <img src="https://upload.wikimedia.org/wikipedia/en/0/0a/Flappy_Bird_icon.png"  width="55" height="55"style="border-radius: 10%">
+    </span>
+    </button>
+    <button onclick="window.location.href='chromedino.html';">
+      <img src="https://lh3.googleusercontent.com/jq1i1nFKtLmxQI70ss58AfAwZi0Ef44ie62bthVndVBeHrPL04Ea46560tm-Pdki7phe=s180"  width="55" height="55"style="border-radius: 10%">
+    </span>
+    </button>
+    <button onclick="window.location.href='page-4.html';">
+      <span class="material-symbols-outlined">
+      arrow_forward_ios
+      </span>
+    </button>
+</div>
+<script>
+    function changeBackground(image) {
+        document.body.style.backgroundImage = `url('${image}')`;
+        localStorage.setItem('backgroundImage', image);
+    }
+
+    // Retrieve saved background choice on page load
+    const savedBackground = localStorage.getItem('backgroundImage');
+    if (savedBackground) {
+        document.body.style.backgroundImage = `url('${savedBackground}')`;
+    }
+</script>
+</body>
+</html>

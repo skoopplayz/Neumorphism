@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Background Image Display</title>
+    <style>
+        body {
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        function changeBackground(image) {
+            document.body.style.backgroundImage = `url('${image}')`;
+            localStorage.setItem('backgroundImage', image);
+        }
+
+        // Retrieve saved background choice on page load
+        const savedBackground = localStorage.getItem('backgroundImage');
+        if (savedBackground) {
+            document.body.style.backgroundImage = `url('${savedBackground}')`;
+        }
+    </script>
+</body>
+</html>
